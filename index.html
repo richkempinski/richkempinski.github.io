@@ -5489,7 +5489,7 @@ var author$project$Main$activeBtnColor = F2(
 		return _Utils_eq(currPlayer, isThisPerson) ? 'yellow' : 'white';
 	});
 var author$project$Main$minsec = function (seconds) {
-	return elm$core$String$fromInt((seconds / 60) | 0) + (':' + elm$core$String$fromInt(60 % seconds));
+	return elm$core$String$fromInt((seconds / 60) | 0) + (':' + elm$core$String$fromInt(seconds % 60));
 };
 var elm$json$Json$Decode$map = _Json_map1;
 var elm$json$Json$Decode$map2 = _Json_map2;
