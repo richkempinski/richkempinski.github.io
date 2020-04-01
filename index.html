@@ -5488,6 +5488,9 @@ var author$project$Main$activeBtnColor = F2(
 	function (currPlayer, isThisPerson) {
 		return _Utils_eq(currPlayer, isThisPerson) ? 'yellow' : 'white';
 	});
+var author$project$Main$minsec = function (seconds) {
+	return elm$core$String$fromInt((seconds / 60) | 0) + (':' + elm$core$String$fromInt(60 % seconds));
+};
 var elm$json$Json$Decode$map = _Json_map1;
 var elm$json$Json$Decode$map2 = _Json_map2;
 var elm$json$Json$Decode$succeed = _Json_succeed;
@@ -5552,7 +5555,7 @@ var author$project$Main$view = function (model) {
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						elm$core$String$fromInt(model.hisTime))
+						author$project$Main$minsec(model.hisTime))
 					])),
 				A2(
 				elm$html$Html$button,
@@ -5608,7 +5611,7 @@ var author$project$Main$view = function (model) {
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						elm$core$String$fromInt(model.herTime))
+						author$project$Main$minsec(model.herTime))
 					]))
 			]));
 };
