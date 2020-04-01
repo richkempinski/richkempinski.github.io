@@ -5484,6 +5484,10 @@ var author$project$Main$IncrementTimeLeft = {$: 'IncrementTimeLeft'};
 var author$project$Main$Pause = {$: 'Pause'};
 var author$project$Main$Reset = {$: 'Reset'};
 var author$project$Main$SheStops = {$: 'SheStops'};
+var author$project$Main$activeBtnColor = F2(
+	function (currPlayer, isThisPerson) {
+		return _Utils_eq(currPlayer, isThisPerson) ? 'yellow' : 'white';
+	});
 var elm$json$Json$Decode$map = _Json_map1;
 var elm$json$Json$Decode$map2 = _Json_map2;
 var elm$json$Json$Decode$succeed = _Json_succeed;
@@ -5538,9 +5542,23 @@ var author$project$Main$view = function (model) {
 				elm$html$Html$button,
 				_List_fromArray(
 					[
-						elm$html$Html$Events$onClick(author$project$Main$DecrementTimeLeft),
+						elm$html$Html$Events$onClick(author$project$Main$HeStops),
 						A2(elm$html$Html$Attributes$style, 'font-size', '200px'),
-						A2(elm$html$Html$Attributes$style, 'background-color', 'yellow')
+						A2(
+						elm$html$Html$Attributes$style,
+						'background-color',
+						A2(author$project$Main$activeBtnColor, model.currentPlayer, author$project$Main$He))
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text(
+						elm$core$String$fromInt(model.hisTime))
+					])),
+				A2(
+				elm$html$Html$button,
+				_List_fromArray(
+					[
+						elm$html$Html$Events$onClick(author$project$Main$DecrementTimeLeft)
 					]),
 				_List_fromArray(
 					[
@@ -5550,9 +5568,7 @@ var author$project$Main$view = function (model) {
 				elm$html$Html$button,
 				_List_fromArray(
 					[
-						elm$html$Html$Events$onClick(author$project$Main$IncrementTimeLeft),
-						A2(elm$html$Html$Attributes$style, 'font-size', '200px'),
-						A2(elm$html$Html$Attributes$style, 'background-color', 'yellow')
+						elm$html$Html$Events$onClick(author$project$Main$IncrementTimeLeft)
 					]),
 				_List_fromArray(
 					[
@@ -5582,22 +5598,12 @@ var author$project$Main$view = function (model) {
 				elm$html$Html$button,
 				_List_fromArray(
 					[
-						elm$html$Html$Events$onClick(author$project$Main$HeStops),
-						A2(elm$html$Html$Attributes$style, 'font-size', '200px'),
-						A2(elm$html$Html$Attributes$style, 'background-color', 'yellow')
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text(
-						elm$core$String$fromInt(model.hisTime))
-					])),
-				A2(
-				elm$html$Html$button,
-				_List_fromArray(
-					[
 						elm$html$Html$Events$onClick(author$project$Main$SheStops),
 						A2(elm$html$Html$Attributes$style, 'font-size', '200px'),
-						A2(elm$html$Html$Attributes$style, 'background-color', 'yellow')
+						A2(
+						elm$html$Html$Attributes$style,
+						'background-color',
+						A2(author$project$Main$activeBtnColor, model.currentPlayer, author$project$Main$She))
 					]),
 				_List_fromArray(
 					[
